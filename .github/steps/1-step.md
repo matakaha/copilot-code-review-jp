@@ -1,78 +1,77 @@
-## Step 1: Ask for a Review in VS Code
+## Step 1: VS Code でレビューを依頼する
 
-Mergington High School has an Extracurricular Activities website. In the last months, you have added lots of features and it has become increasingly well used by your fellow staff and students.
+マージントン高校には課外活動専用ウェブサイトがあります。ここ数か月で多くの機能が追加され、教職員や生徒の間で利用がますます広がっています。
 
-Now, multiple teachers want to help develop new features. This is great, but your energy is limited and if you don't have time to review changes, you fear the application will become messy. To scale your "review" availability, let's implement **GitHub Copilot code review**!
+現在、さまざまな教師が新機能の開発を手伝いたいと思っています。これはありがたいことですが、あなたの時間とパワーには限界があり、変更点をレビューする時間がなければ、アプリケーション開発が混乱するのではないかと懸念しています。あなたの "レビュー" 対応力を向上させるため、**GitHub Copilot code review** を導入しましょう！
 
-Before we implement automated code reviews with Copilot, it makes sense to try reviews locally in VS Code. This will help us better understand it, build our review criteria, and ensure all teacher-collaborators receive consistent feedback when they start contributing.
+Copilotによる自動コードレビューを導入する前に、VS Codeでローカルレビューを試すのが合理的です。これにより、Copilotの理解を深めレビュー基準を構築し、協力してくれる教師たちが貢献を開始した際に、一貫したフィードバックを確実に受け取れるようになります。
 
-### 📖 Theory: GitHub Copilot Local Code Review
+### 📖 理論：GitHub Copilot ローカルコードレビュー
 
-GitHub Copilot can review your code directly in VS Code, providing immediate feedback on uncommitted changes. It even adds comments similar to the feedback in a pull request! This local review capability allows developers to catch issues before they even reach version control, improving code quality from the start. And maybe catch those embarrassing typos! 😅
+GitHub CopilotはVS Code内で直接コードをレビューし、コミット前の変更に対して即座にフィードバックを提供します。プルリクエストのフィードバックに似たコメントを追加することさえ可能です！このローカルレビュー機能により、開発者はバージョン管理に到達する前に問題を発見でき、最初からコード品質を向上させられます。そして、恥ずかしいタイプミスも発見できるかもしれません！ 😅
 
-Key features:
+主な機能 :
 
-- **Local analysis** of uncommitted changes
-- **Code quality and style** recommendations
-- **Detection** of common security vulnerabilities
-- **Performance optimization** suggestions
+- コミットされていない変更の **ローカル解析**
+- **コードの品質とスタイル** に関する推奨事項
+- 一般的なセキュリティ脆弱性の **検出**
+- **パフォーマンス最適化** の提案
 
-This immediate feedback helps you identify and fix issues early in your development process, making your code more robust before it even reaches a pull request.
+この即時フィードバックにより、開発プロセスの早い段階で問題を特定・修正できるため、プルリクエストに到達する前にコードの堅牢性を高めることができます。
 
-## ⌨️ Activity: Get to know the extracurricular activities site
+## ⌨️ Activity: 課外活動サイトについて知ろう
 
-Before we start developing and reviewing, let's take a moment to understand the current site.
+開発とレビューを始める前に、現在の課外活動サイトについて理解を深めましょう。
 
-1. Right-click the below button to open the **Create Codespace** page in a new tab. Use the default configuration.
+1. 以下のボタンを右クリックして、新しいタブで **Create Codespace** ページを開きます。デフォルトの設定を使用してください
 
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{full_repo_name}}?quickstart=1)
 
-1. Wait some time for the environment to be prepared. It will automatically install all requirements and services.
+1. 環境準備が始まりますのでしばらくお待ちください。必要なすべてのサービスなどが自動的にインストールされます
 
-1. Validate the **GitHub Copilot** and **Python** extensions are installed and enabled.
+1. **GitHub Copilot** および **Python** 拡張機能がインストールされ、有効化されていることを確認してください
 
    <img width="300" alt="copilot extension for VS Code" src="https://github.com/user-attachments/assets/ef1ef984-17fc-4b20-a9a6-65a866def468" /><br/>
    <img width="300" alt="python extension for VS Code" src="https://github.com/user-attachments/assets/3040c0f5-1658-47e2-a439-20504a384f77" />
 
-1. Try running the application. In the left sidebar, select the **Run and Debug** tab and then press the **Start Debugging** icon.
+1. アプリケーションを実行してみてください。左サイドバーで**実行とデバッグ**タブを選択し、**デバッグの開始**アイコンを押してください
 
    <img width="300" alt="run and debug" src="https://github.com/user-attachments/assets/50b27f2a-5eab-4827-9343-ab5bce62357e" />
 
    <details>
    <summary>🤷 Having trouble?</summary><br/>
 
-   If the **Run and Debug** area is empty, try reloading VS Code: Open the command palette (`Ctrl`+`Shift`+`P`) and search for `Developer: Reload Window`.
+   **実行とデバッグ** 領域が空の場合、VS Codeを再読み込みしてみてください：コマンドパレット（`Ctrl`+`Shift`+`P`）を開き、`Developer: Reload Window`を検索してください
 
    <img width="300" alt="empty run and debug panel" src="https://github.com/user-attachments/assets/0dbf1407-3a97-401a-a630-f462697082d6" />
 
    </details>
 
-1. Use the **Ports** tab to find the webpage address, open it, and verify it is running.
+1. **ポート** タブを使用してウェブページのアドレスを見つけ、それを開き、動作していることを確認してください
 
    <img width="350" alt="ports tab" src="https://github.com/user-attachments/assets/8d24d6b5-202d-4109-8174-2f0d1e4d8d44" />
 
    ![Screenshot of Mergington High School WebApp](https://github.com/user-attachments/assets/5e1e7c1e-1b0e-4378-a5af-a266763e6544)
 
-### ⌨️ Activity: Ask Copilot for a review
+### ⌨️ Activity: Copilot にレビューを依頼する
 
-Let's add a simple banner feature for teachers to make announcements and then ask Copilot for feedback.
+教師が告知を行うためのシンプルなバナー機能を追加し、その後Copilotにフィードバックを求めましょう。
 
-1. In VS Code, create a new branch with the following name.
+1. VS Codeで次の名前の新しいブランチを作成します
 
    ```txt
    add-announcement-banner
    ```
 
-1. Open the `src/static/index.html` file. Add the following after the `<body>` tag.
+1. `src/static/index.html` ファイルを開きます。`<body>` タグの後に以下の内容を追加します
 
    ```html
    <div class="announcement-banner">
-     📢 Activity registration is open until the end of the month. Don't lose your spot!
+     📢 活動登録は今月末まで受け付けています。お早めに！
    </div>
    ```
 
-1. Open the `src/static/styles.css` file. Add the following to the end.
-
+1. `src/static/styles.css` ファイルを開きます。末尾に以下の内容を追加します
    ```css
    .announcement-banner {
      background-color: #4caf50;
@@ -83,29 +82,29 @@ Let's add a simple banner feature for teachers to make announcements and then as
    }
    ```
 
-1. (optional) Refresh the running app to see the change.
+1. (optional) 変更を確認するには、実行中のアプリを再読み込みしてください
 
    <img width="400" alt="screenshot of site with announcement banner" src="https://github.com/user-attachments/assets/39de7fe0-58f2-4eba-a163-d3037b2b3b06"/>
 
-1. In VS Code, open the source control panel and ensure there are uncommitted changes.
+1. VS Code でソース管理パネルを開き、コミットされていない変更があることを確認してください
 
-1. Hover over the **Changes** section to show various icons. Click the **Code Review** button and wait a moment for Copilot to add comments.
+1. **Changes**セクションにカーソルを合わせると、さまざまなアイコンが表示されます。**Code Review**ボタンをクリックし、Copilotがコメントを追加するまでしばらくお待ちください
 
    <img width="300" alt="screenshot of site with announcement banner" src="https://github.com/user-attachments/assets/6c52d550-d67b-4af9-99dd-e181695a4933"/>
 
-   > 💡 **TIP:** There are 3 levels of review available: `unstaged changes` and `staged changes` and `uncommitted changes`
+   > 💡 **TIP:** 利用可能なレビューレベルは3つあります：`未ステージングの変更`、`ステージング済みの変更`、`未コミットの変更`
 
-1. Expand the **Comments** panel to find a list of review feedback from Copilot.
+1. **コメント**パネルを展開すると、Copilotからのレビューフィードバックの一覧が表示されます
 
    <img width="300" alt="screenshot of problems control panel with comments from Copilot" src="https://github.com/user-attachments/assets/64c5efb6-9071-4511-b2a2-2dc85c9e929b"/>
 
-1. Use the **Apply** or **Discard** buttons to address Copilot's feedback.
+1. Copilot のフィードバックに対応するには、**適用** または **破棄** ボタンを使用してください
 
    <img width="300" alt="screenshot of inline comment with buttons to address feedback" src="https://github.com/user-attachments/assets/aef73097-acaf-4f5b-a52f-52a142bb413f"/>
 
-1. Commit and push the Announcement related changes to the `add-announcement-banner` branch.
+1. `add-announcement-banner` ブランチに、アナウンス関連の変更をコミットしてプッシュしてください
 
-1. With your changes pushed, wait a moment for Mona to check your work, provide feedback, and share the next lesson.
+1. 変更をプッシュしたら、モナが作業を確認し、フィードバックを提供し、次のレッスンを共有するまでしばらくお待ちください
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>

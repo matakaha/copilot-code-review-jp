@@ -1,31 +1,31 @@
 # GitHub Copilot Code Review
 
-_Leverage GitHub Copilot code review to promote code quality and catch issues before they reach production._
+_GitHub Copilot Code Reviewを活用して、コードの品質を向上させ、本番環境に到達する前に問題を発見します。_
 
-## Welcome
+## ようこそ
 
-- **Who is this for**: Developers familiar with GitHub Copilot who want to scale code review
-- **What you'll learn**: How to use GitHub Copilot for automated code reviews, customize review criteria, and set up automatic reviews
-- **What you'll build**: You'll update the Mergington High School extracurricular activities website and customize Copilot to automatically review pull requests for you, enabling more teachers to contribute.
-- **Prerequisites**:
+- **想定対象者**: GitHub Copilot について一通り理解しており、コード レビューをスケールしたいと考えている開発者
+- **学習内容**: GitHub Copilot を使用して自動コードレビューを行い、レビュー基準をカスタマイズし、自動レビューを設定する方法
+- **学習コンテンツ**: マージントン高校の課外活動ウェブサイトを更新し、CopilotをカスタマイズしてPR(Pull Request)を自動でレビューできるようにし、より多くの教師が貢献できるようにします。
+- **前提条件**:
 
-  - GitHub Copilot subscription (paid plan is required)
-  - Familiarity with reviewing code in pull requests
-  - Familiarity with Codespaces, or [Code with Codespaces](https://github.com/skills-dev/code-with-codespaces) Skills exercise
-  - Familiarity with GitHub Copilot, or [Getting Started with GitHub](https://github.com/skills/getting-started-with-github-copilot) Skills exercise
+  - GitHub Copilot サブスクリプション (有料プランが必須です)
+  - PR(Pull Request)でのコードのレビューを理解していること
+  - Codespaces、または [Code with Codespaces](https://github.com/skills-dev/code-with-codespaces) スキル演習に関して理解していること
+  - GitHub Copilot または [GitHub 入門](https://github.com/skills/getting-started-with-github-copilot) スキル演習に関して理解していること
 
-- **How long**: This exercise takes less than 1 hour to complete.
+- **想定時間**: おおむね１時間程度を想定しています
 
-In this exercise, you will:
+この演習であなたは :
 
-1. Use GitHub Copilot to review code directly in VS Code for immediate feedback
-1. Request Copilot code reviews on pull requests
-1. Customize Copilot's review considerations with repository-specific instructions
-1. Configure automatic code reviews using repository rulesets
+1. GitHub Copilot を使用して VS Code でコードを直接レビューし、即時フィードバックを得る
+1. PR(Pull Request)で GitHub Copilot Code Review をリクエストする
+1. リポジトリ固有の指示でCopilotのレビュー考慮事項をカスタマイズする
+1. リポジトリルールセットを使用して自動コードレビューを設定する
 
-### How to start this exercise
+### この演習の始め方
 
-Simply copy the exercise to your account, then give your favorite Octocat (Mona) **about 20 seconds** to prepare the first lesson, then **refresh the page**.
+この演習をご自身のアカウントにコピーしてください。Octocat (Mona) が 約 20 秒間かけて最初のレッスンを準備しますので、その後ページを更新してください
 
 [![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills-dev&template_name=copilot-code-review&owner=%40me&name=skills-copilot-code-review&description=Exercise:+GitHub+Copilot+Code+Review&visibility=public)
 

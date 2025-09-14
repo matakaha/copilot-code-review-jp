@@ -1,149 +1,149 @@
-## Step 3: Customize Your Review
+## Step 3: レビューのカスタマイズ
 
-The school's coding standards are crucial for maintaining the activities website. You've noticed that teachers are using different visual styles and coding patterns. With such diverse programming backgrounds and priorities among your teacher-collaborators, let's customize Copilot's review behavior to align with the school's educational programming standards.
+The school's coding standards are crucial for maintaining the activities website. You've noticed that teachers are using different visual styles and coding patterns. With such diverse programming backgrounds and priorities among your teacher-collaborators, let's customize Copilot's review behavior to align with the school's educational programming standards.学校のコーディング規約は、課外活動ウェブサイト維持管理に欠かすことはできません。教師たちが作成するサイトのデザインやコーティングパターンがバラバラなことに気付いたとします。協力してくれる教師たちのプログラミングに関するバックグラウンドや優先事項は様々であることを念頭に、Copilotのレビュー動作をカスタマイズして、学校としてのプログラミング基準に沿うようにカスタマイズしましょう。
 
-### 📖 Theory: Repository Custom Instructions
+### 📖 Theory: リポジトリのカスタム指示
 
-Repository custom instructions allow you to provide Copilot with context about your project standards and preferences. By creating instruction files, you can ensure Copilot's suggestions consistently follow your team's conventions and focus on your specific requirements. You can even have copilot analyze your project and [generate instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_generate-an-instructions-file-for-your-workspace) for you!
+リポジトリのカスタム指示により、プロジェクトの標準や好みをCopilotに伝達できます。指示ファイルを作成することで、Copilotの提案がチーム方針に対し一貫性を保持し、特定の要件に集中するよう保証できます。プロジェクトを分析させ、[指示を生成](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_generate-an-instructions-file-for-your-workspace)させることも可能です！
 
-**Types of Instructions:**
+**指示(Instruction)の種類 :**
 
-- **Repository-wide instructions**: Applies to all code in the repository. Ex: `.github/copilot-instructions.md`
-- **Path-specific instructions**: Applies to specific files to create focused criteria for different parts of your codebase. Ex: `.github/instructions/NAME.instructions.md`.
+- **リポジトリ全体に対する指示**: リポジトリ内のすべてのコードに適用されます。 例: `.github/copilot-instructions.md`
+- **パス固有の指示**: 特定のファイルに適用し、コードベースの異なる部分に対して焦点を絞った規約を作成します。 例: `.github/instructions/NAME.instructions.md`.
 
-Instructions are written in natural language with Markdown format and typically include:
+説明文は自然言語で記述され、Markdown形式で書かれ、通常以下のような内容を含みます:
 
-- Security requirements and checklists
-- Code standards and conventions
-- Performance optimization priorities
-- Team-specific preferences and style guides
-- Language-specific review criteria
+- セキュリティ要件とチェックリスト
+- 標準的なコーディングと規約
+- パフォーマンス最適化の優先順位
+- チーム固有の設定とスタイルのガイド
+- 言語固有のレビュー基準
 
-Path-specific instruction files include [YAML front matter](https://docs.github.com/en/contributing/writing-for-github-docs/using-yaml-frontmatter) with file [glob patterns](https://code.visualstudio.com/docs/editor/glob-patterns) to target specific files and directories. Examples:
+パス固有の指示ファイルには、特定のファイルやディレクトリを対象とするファイル[glob patterns](https://code.visualstudio.com/docs/editor/glob-patterns)を含む[YAML front matter](https://docs.github.com/en/contributing/writing-for-github-docs/using-yaml-frontmatter)が含まれます。 例:
 
 ```yaml
 ---
 applyTo: "tests/**/**,docs/*.md"
 ---
-# Testing Guidelines ...
+# テスト ガイドライン ...
 ```
 
 ```yaml
 ---
 applyTo: "docs/*.md,README.md"
 ---
-# Documentation Guidelines ...
+# ドキュメント ガイドライン ...
 ```
 
 > [!TIP]
-> Repository [custom instructions](https://docs.github.com/en/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot) work for both local VS Code code reviews and pull request code reviews, ensuring consistency across your development workflow.
+> リポジトリの[カスタム指示(custom instructions)](https://docs.github.com/en/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot)は、VS Code上のコードレビューとプルリクエストのコードレビューの両方で機能するため、開発ワークフロー全体で一貫性を確保します。
 
-### ⌨️ Activity: Add general instructions
+### ⌨️ Activity: リポジトリ全体に対する指示を追加する
 
-Let's customize Copilot's review considerations by adding custom instructions.
+Let's customize Copilot's review considerations by adding custom instructions.カスタム指示(custom instructions)を追加して、Copilotが行うレビューの考慮事項をカスタマイズしましょう。
 
-1. In VS Code, ensure you are still on the `add-announcement-banner` branch.
+1. VS Codeで、`add-announcement-banner` ブランチにいることを確認してください
 
-1. Create a file for general repository guidelines.
+1. リポジトリの一般的なガイドラインに関するファイルを作成する
 
-   File location and name:
+   ファイルのパスと名前:
 
    ```txt
    .github/copilot-instructions.md
    ```
 
-   Content:
+   コンテンツ:
 
    ```markdown
-   ## Security
+   ## セキュリティ
 
-   - Validate input sanitization practices.
-   - Search for risks that might expose user data.
-   - Prefer loading configuration and content from the database instead of hard coded content. If absolutely necessary, load it from environment variables or a non-committed config file.
+   - 入力へのサニタイズ処理を検証する
+   - ユーザーデータを危険にさらす可能性のあるリスクを検索する
+   - 設定とコンテンツは、ハードコードされた内容ではなくデータベースから読み込むことを推奨します。どうしても必要な場合は、環境変数またはコミットされていない設定ファイルから読み込んでください。
 
-   ## Code Quality
+   ## コードの品質
 
-   - Use consistent naming conventions.
-   - Try to reduce code duplication.
-   - Prefer maintainability and readability over optimization.
-   - If a method is used a lot, try to optimize it for performance.
-   - Prefer explicit error handling over silent failures.
+   - 一貫した命名規則を使用する
+   - 重複するコードを減らすように努める
+   - 最適化よりも保守性と可読性を優先する
+   - メソッドが頻繁に使用される場合は、パフォーマンス向上のために最適化を試みる
+   - サイレント障害(silent failures)を失くし、明示的なエラー処理をするように努める
    ```
 
-### ⌨️ Activity: Add focused instructions
+### ⌨️ Activity: 焦点を絞った指示を追加する
 
-Let's create specific Copilot's review considerations for the frontend and backend.
+フロントエンドおよびバックエンド向けに、Copilotのレビューに関する具体的な考慮事項を作成しましょう。
 
-1. Create a file for the frontend-specific guidelines.
+1. フロントエンド用のガイドラインを記述するファイルを作成する
 
-   > ❗️ **Important**: Make sure to put file-specific instructions in the `.github/instructions/` folder, not the `.github/` folder.
+   > ❗️ **Important**: ファイル固有の指示は必ず `.github/instructions/` フォルダに配置し、`.github/` フォルダには配置しないでください
 
-   File location and name:
+   ファイルのパスと名前:
 
    ```txt
    .github/instructions/frontend.instructions.md
    ```
 
-   Content:
+   コンテンツ:
 
    ```markdown
    ---
    applyTo: "*.html,*.css,*.js"
    ---
 
-   ## Frontend Guidelines
+   ## フロントエンド ガイドライン
 
-   - Use accessibility attributes (alt text, aria labels) and color schemes.
-   - Use responsive design for compatibility with mobile devices.
-   - Validate HTML structure and semantic elements
+   - accessibility attributes(alt text, aria labels)とcolor schemeを使用する
+   - モバイルデバイスにおける互換性確保を目的として、レスポンシブデザインを使用する
+   - HTML構造とsemantic elementを検証する
    ```
 
-1. Create a file for the backend-specific guidelines.
+1. バックエンド用のガイドラインを記述するファイルを作成する
 
-   File location and name:
+   ファイルのパスと名前:
 
    ```txt
    .github/instructions/backend.instructions.md
    ```
 
-   Content:
+   コンテンツ:
 
    ```markdown
    ---
    applyTo: "backend/**/*,*.py"
    ---
 
-   ## Backend Guidelines
+   ## バックエンド ガイドライン
 
-   - All API endpoints must be defined in the `routers` folder.
-   - Load example database content from the `database.py` file.
-   - Error handling is only logged on the server. Do not propagate to the frontend.
-   - Ensure all APIs are explained in the documentation.
-   - Verify changes in the backend are reflected in the frontend (`src/static/**`). If possible breaking changes are found, mention them to the developer.
+   - すべてのAPIエンドポイントは`routers`フォルダ内に定義する
+   - `database.py`ファイルからサンプルデータベースの内容を読み込む
+   - エラー処理はサーバー側でのみログ記録する。フロントエンドへ伝播させない
+   - すべてのAPIがドキュメントで説明されていることを確認する
+   - バックエンドの変更がフロントエンド（`src/static/**`）に反映されていることを確認する。可能であれば、互換性を損なう変更が見つかった場合、開発者にその旨を伝える
    ```
 
-1. Commit and push the instruction files.
+1. 指示(Instraction)を記載したすべてのファイルをCommitしPushする
 
 > [!TIP]
-> VS Code has a built-in commands to help manage instructions. Try opening the command pallette and searching for `instructions`.
+> VS Codeには、指示を管理するのに役立つ組み込みコマンドがあります。コマンドパレット(`Ctrl`+`Shift`+`P`)を開き、`instructions` を検索してみてください。
 
-### ⌨️ Activity: Request another review
+### ⌨️ Activity: 再レビューを依頼する
 
-With our new instructions defined, Copilot now has a better idea of what is important for our project. Let's ask for another review.
+新しい指示を定義したことで、Copilotはプロジェクトにとって何が重要かをより理解できるようになりました。それでは、再度レビューを依頼しましょう。
 
-1. In VS Code, Ensure the instructions are indeed committed and push to the repository.
+1. VS Codeで、指示が実際にコミットされ、リポジトリにプッシュされていることを確認する
 
-1. In the web browser, return to the recently created pull request.
+1. ブラウザで、先ほど作成したプルリクエストに戻る
 
-1. In the top right, find the **Reviewers** menu and **Re-request review** button next to **Copilot**. Click it and wait a moment for Copilot to add comments on the pull request.
+1. 右上の**Reviewers**メニューと、**Copilot**の横にある**Re-request review**ボタンを探してください。クリックすると、Copilotがプルリクエストにコメントを追加するまでしばらく待ちます
 
    <img width="300" alt="screenshot of re-review button" src="https://github.com/user-attachments/assets/c45aa8de-278d-46e7-bfe2-2dc6b574e11e"/>
 
-   > 🪧 **Note:** If you are too quick after pushing new commits, you may have to wait a moment for the button to appear, or refresh the page.
+   > 🪧 **Note:** 新しいコミットをプッシュした後、すぐに操作すると、ボタンが表示されるまで少し待つ必要があります。しばらく待っても表示が変更されない場合は、ページを更新してください。
 
-1. Observe that Copilot's feedback now differs from the previous review.
+1. Copilotのフィードバックが前回のレビューコメントとは異なることを注視してください
 
-1. With the review requested, wait a moment for Mona to check your work, provide feedback, and share the next lesson.
+1. レビューをリクエストしたら、モナがあなたの作業を確認し、フィードバックを提供し、次のレッスンを共有するまでしばらくお待ちください
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>

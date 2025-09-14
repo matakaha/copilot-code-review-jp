@@ -1,46 +1,46 @@
-## Step 2: Get a Pull Request Review
+## Step 2: Pull Request Review を依頼する
 
-Now that you've tested Copilot's local review capabilities and made some changes to improve the activities website, it's time to create a pull request and get Copilot's feedback on your proposed changes before they're merged into the main branch, just like one of the other teachers would. Let's see how Copilot reviews changes in the pull request process.
+さて、VS CodeでのCopilotのローカルレビュー機能を動作確認し、アクティビティサイトの改善変更を加えたので、プルリクエストの作成、メインブランチにマージする前に提案した変更に対するCopilotのフィードバックを得る段階です。他の教師が行うのと同様の手順です。プルリクエストプロセスにおける変更のレビュー方法をCopilotがどのように行うのか確認してみましょう。
 
-### 📖 Theory: Pull Request Code Reviews
+### 📖 理論: Pull Request Code Reviews
 
-GitHub Copilot analyzes your code and provides intelligent feedback with actionable suggestions you can apply instantly. Each code review consumes one [Premium Request Unit (PRU)](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) from the requester.
+GitHub Copilotはコードを分析し、即座に適用可能な実用的な提案を含むインテリジェントなフィードバックを提供します。各コードレビューはリクエスト元から1つの[プレミアムリクエストユニット（PRU:Premium Request Unit）](https://docs.github.com/en/copilot/concepts/billing/copilot-requests)を消費します。
 
 > [!IMPORTANT]
-> Use [code review responsibly](https://docs.github.com/en/copilot/responsible-use/code-review) - Copilot is trained to be familiar with many common security concerns, but it is not meant to replace dedicated security tools, guidelines, and standards. Please use of the correct tools for the job.
+> [Code review利用時の責任の所在](https://docs.github.com/en/copilot/responsible-use/code-review) - Copilotは多くの一般的なセキュリティ上の懸念事項に精通するよう訓練されています。しかし、専用のセキュリティツール、ガイドライン、標準に代わるものではありません。適切なツールを適切に使用してください。
 
-**Key Capabilities:**
+**主な機能:**
 
-- **Automated Analysis**: Reviews code for quality, security, and performance issues
-- **Actionable Suggestions**: Provides specific recommendations with suggested code changes
-- **Integration**: Works seamlessly with GitHub's native pull request flow, the same as regular peer feedback
-- **Non-blocking**: Provides "Comment" reviews that don't block merging or count toward required approvals
-- **Customizable**: Supports custom instructions to align with team standards
-- **Secure**: Operates within GitHub's secure infrastructure
+- **自動分析**: コードの品質、セキュリティ、パフォーマンスの問題をレビューする
+- **実施可能な提案**: コードの変更を伴う提案と共に具体的な推奨事項を提供する
+- **インテグレーション**: GitHub上の一般的なプルリクエストワークフローとシームレスに統合されており、通常のピアコードレビューと同様に動作する
+- **ノンブロッキング**: マージのブロックをすることもなく、マージ時に必要なコメント数にもカウントされないレビューコメントを提供する
+- **カスタム可能**: チームの基準に沿うように指示内容をカスタムできる
+- **セキュア**: GitHubが提供するセキュアなインフラ上で動作する
 
-For more information, see the [GitHub Copilot code review documentation](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review).
+詳細については、[GitHub Copilot コードレビューのドキュメント](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review)を参照してください。
 
-### ⌨️ Activity: Request a review
+### ⌨️ Activity: レビュー依頼
 
-1. If needed, open another web browser tab and navigate to this exercise repository.
+1. 必要に応じて、ブラウザで別のタブを開き、この演習リポジトリに移動してください。
 
-1. Start a new pull request. Enter the following details and click the **Create pull request** button.
+1. 新しいプルリクエストを開始します。以下の詳細を入力し、**Create pull request**ボタンをクリックしてください。
 
    - **compare:** `add-announcement-banner`
    - **target:** `main`
-   - **title:** `Add announcement banner`
+   - **title:** `お知らせバナーを追加する`
 
-1. In the right-side details area, find the **Reviewers** menu. Click on the **settings icon** to show a list of available reviewers and select **Copilot**.
+1. 右側の詳細エリアで **Reviewers** メニューを探します。 **settings icon** をクリックして利用可能なレビュー担当者のリストを表示し **Copilot** を選択します。
 
    <img width="300" alt="screenshot of reviewers menu" src="https://github.com/user-attachments/assets/0f9f2e86-51b7-4542-82a1-afb6a22ab3ca"/>
 
-1. Wait a moment for Copilot to review the changes and add comments to your pull request. Notice an entry was added to the conversation log.
+1. Copilotが変更内容をレビューし、コメントを追記するまで待ちます。会話のログが追記されることに注視します。
 
    <img width="300" alt="new log entry - requested review from copilot" src="https://github.com/user-attachments/assets/3e522bda-e68e-4469-93f4-a7ad103cca97"/>
 
    <img width="500" alt="new log entry - copilot's PR summary" src="https://github.com/user-attachments/assets/0a870950-560e-4df8-80d5-2b93f1be99ab"/>
 
-1. With the review requested, wait a moment for Mona to check your work, provide feedback, and share the next lesson.
+1. レビューをリクエストしたら、モナがあなたの作業を確認し、フィードバックを提供し、次のレッスンを共有するまでしばらくお待ちください。
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>

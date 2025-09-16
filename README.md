@@ -27,7 +27,7 @@ _GitHub Copilot Code Reviewを活用して、コードの品質を向上させ�
 
 この演習をご自身のアカウントにコピーしてください。Octocat (Mona) が 約 20 秒間かけて最初のレッスンを準備しますので、その後ページを更新してください
 
-[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills-dev&template_name=copilot-code-review&owner=%40me&name=skills-copilot-code-review&description=Exercise:+GitHub+Copilot+Code+Review&visibility=public)
+[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=matakaha&template_name=copilot-code-review&owner=%40me&name=skills-copilot-code-review&description=Exercise:+GitHub+Copilot+Code+Review&visibility=public)
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>

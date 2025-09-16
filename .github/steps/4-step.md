@@ -1,122 +1,122 @@
-## Step 4: Automate Reviews
+## Step 4: レビューの自動化
 
-The tailored reviews seem to be working great, however there's a problem. They aren't technically required. Manually requesting Copilot reviews clearly isn't sustainable when you have multiple teachers contributing to the activities website. You want every pull request to automatically receive Copilot's feedback, especially since there are varying levels of programming experience among your collaborators. Let's set up repository rulesets to require Copilot reviews on all changes.
+カスタマイズされたレビューはうまく機能しているようですが、問題があります。手動でレビュー依頼を行っている以上、技術的には必須ではないのです。何名もの教師が活動ウェブサイトに貢献している状況では、手動でCopilotにレビューを依頼するのは明らかに持続可能な方法ではありません。特に作業者のプログラミング経験に関するレベルが様々であるため、すべてのプルリクエストが自動的にCopilotのフィードバックを受け取るようにしたいところです。すべての変更に対してCopilotレビューを必須とするリポジトリルールセットを設定しましょう。
 
-### 📖 Theory: Repository Rulesets for Automated Reviews
+### 📖 理論: レビュー自動化を実施するルールセット
 
-Repository rulesets allow you to enforce automatic code reviews on all pull requests, ensuring consistent quality checks without relying on developers to manually request reviews or remember to follow documentation.
+リポジトリルールセットを使用すると、すべてのプルリクエストに対して自動コードレビューを強制適用でき、開発者が手動でレビューを依頼したりドキュメントに従うことを忘れたりすることなく、一貫した品質チェックを保証します。
 
-Each code review consumes one [Premium Request Unit (PRU)](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) from the author of the pull request.
+Each code review consumes one [Premium Request Unit (PRU)](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) from the author of the pull request.プルリクエストの作成者から、各コードレビューごとに1つの[プレミアムリクエストユニット（PRU:Premium Request Unit）](https://docs.github.com/en/copilot/concepts/billing/copilot-requests)が消費されます。
 
-**Enforcement Options:**
+**強制するためのオプション :**
 
-- **Repository-level**: All new pull requests in the specific repository
-- **Branch-specific**: Target specific branches by filters and name patterns
-- **Organization-level**: Apply rule sets across multiple repositories
+- **Repository-level**: 特定リポジトリにおける全てのプルリクエストに適用する
+- **Branch-specific**: フィルターと命名パターンで特定のブランチをターゲットとする
+- **Organization-level**: 複数リポジトリにルールセットを適用する
 
-**Key Benefits:**
+**主なメリット :**
 
-- Consistent code quality across all contributions
-- Automatic enforcement without manual intervention
-- Configurable based on branch protection needs
-- Integration with existing GitHub workflow permissions
+- 全ての貢献において一貫したコード品質を保つ
+- 手動介入なしで自動的に適用できる
+- ブランチ保護の必要性に基づいた設定が可能
+- 既存のGitHubワークフロー権限との統合
 
-For more information, see the [repository rulesets documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
+詳細については、[リポジトリルールセットのドキュメント](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)を参照してください。
 
-### ⌨️ Activity: Create a repository ruleset
+### ⌨️ Activity: リポジトリルールセットの作成
 
-1. In the top navigation, select the **Settings** tab.
+1. 上部ナビゲーションで、**Settings**タブを選択する
 
-1. In the left navigation, expand **Rules** and select **Rulesets**.
+1. 左側のナビゲーションで、**Rules**を展開し、**Rulesets**を選択する
 
-1. Click the **New ruleset** button and select the **New branch ruleset** option.
+1. **New ruleset**ボタンをクリックし、**New branch ruleset**オプションを選択する
 
-1. Set the ruleset name and status:
+1. 次のように、ルールセット名とステータスを設定する :
 
    - **Ruleset Name**: `Require Copilot Reviews`
    - **Enforcement Status**: `Active`
 
-1. Under **Target branches**, add protections for the `main` branch.
+1. **Target branches**で、`main`ブランチに対する保護を追加します
 
-   1. Click **Add target** and **Include default branch**.
-   1. Click **Add target** and **Include by pattern**.
-   1. Enter `main` and click the **Add inclusion pattern** button.
+   1. **Add target** をクリック、**Include default branch**を選択
+   1. **Add target** をクリック、**Include by pattern**を選択
+   1. `main`と入力し、**Add inclusion pattern**ボタンをクリック
 
    <img width="300" alt="screenshot of target branches" src="https://github.com/user-attachments/assets/217f205c-7a61-4ffa-a0a6-7e76ff8d7906"/>
 
-1. Under **Rules**, enable the following options:
+1. **Rules**で、以下のオプションを有効にする :
 
-   - **Require a pull request before merging**: ☑️
-   - **Require conversation resolution before merging**: ☑️
-   - **Automatically request Copilot code review**: ☑️
+   - **Require a pull request before merging(マージ前にプルリクエストを要求する)**: ☑️
+   - **Require conversation resolution before merging(マージ前にConversationの解決を要求する)**: ☑️
+   - **Automatically request Copilot code review(Copilotの自動コードレビューをリクエストする)**: ☑️
 
-1. Scroll to the bottom and click the **Create** button.
+1. 画面下部までスクロールし、**Create**ボタンをクリックする
 
-1. Return to the open pull request.
+1. 開いているプルリクエストに戻る
 
-1. Notice that the merge button is now disabled.
+1. マージボタンが無効になっていることに注意してください
 
    <img width="300" alt="screenshot of disabled merge button" src="https://github.com/user-attachments/assets/28e4cb05-f09d-423d-8c77-8f0ec61c73ad"/>
 
-1. Click **Resolve conversation** for all current and outdated feedback from Copilot. It is not necessary to implement anything.
+1. コパイロットからの現在および過去のフィードバックをすべて解決するには、**Resolve conversation(会話の解決)**をクリックします(今は実装する必要はありません)
 
-1. Merge the pull request.
+1. プルリクエストをマージする
 
-   > 🪧 **Note**: If the **Merge pull request** button doesn't activate, check for unresolved conversations in the outdated comments.
+   > 🪧 **Note**: If the **Merge pull request** button doesn't activate, check for unresolved conversations in the outdated comments.**Merge pull request**ボタンが有効化されない場合は、古いコメント内の未解決の会話がないか確認してください。
 
-1. With the pull request merged, wait a moment for Mona to check your work, provide feedback, and provide a final review. Nice work! You are all done! 🎉
+1. プルリクエストがマージされたら、Monaが作業を確認し、フィードバックを提供し、最終レビューを行うまでしばらくお待ちください。素晴らしい！これで完了です！ 🎉
 
-### ⌨️ Activity: (optional) Test automatic reviews
+### ⌨️ Activity: (optional) 自動レビューのテスト
 
-Not ready to finish yet? Are you concerned by the hard coded announcement banner? Us too!
+まだ終わらせたくない？ハードコードされたお知らせのバナーが気になる？私たちも同じです！
 
-So... let's fix it! 🧑‍🚀🚀
+では、修正しますか 🧑‍🚀🚀
 
 > [!NOTE]
-> You don't need "fix" the new Announcement feature. If you just want to test automatic reviews, you can just make a quick small change and start a new pull request.
+> 新しいお知らせ機能を修正する必要はありません。自動レビューをテストしたいだけなら、簡単な変更を加えて新しいプルリクエストを開始するだけで十分です。
 
-1. In VS Code, switch back to the `main` branch, pull the merged changes, and delete the `add-announcement-banner` branch.
+1. VS Codeで`main` ブランチに戻り、マージされた変更をプルし、`add-announcement-banner` ブランチを削除する
 
-1. Create a new branch from `main` with the following name.
+1. `main` ブランチから、以下の名前で新しいブランチを作成する
 
    ```txt
    enable-editing-announcements
    ```
 
-1. Open the Copilot Chat panel and ensure it is in **Agent mode**. Use the following prompt to ask Copilot to upgrade our new Announcements feature.
+1. チャットパネルを開き、**Agent mode**になっていることを確認します。以下のプロンプトを使用して、Copilotに新しいアナウンス機能のアップグレードを依頼します
 
-   > 💡 **Tip**: The premium models (that use PRUs) are typically more robust and will require less, or no, followup prompts for refinement.
+   > 💡 **Tip**: The premium models (that use PRUs) are typically more robust and will require less, or no, followup prompts for refinement.プレミアムモデル（PRUを使用するもの）は一般的に強固であり(要するに賢い)、精緻化のためのフォローアッププロンプトが少なくて済むか、あるいは全く必要としません。
 
    > ![Static Badge](https://img.shields.io/badge/-Prompt-text?style=social&logo=github%20copilot)
    >
    > ```prompt
-   > The Announcement feature should not be hard coded.
+   > お知らせ機能はハードコードすべきではありません。
    >
-   > - Make it driven from the database.
-   > - Add a button in the header that opens a dialog window. It lists all existing announcements and has controls to add/modify/delete them.
-   > - Only signed in users have access to manage announcements.
-   > - Announcements require an expiration date. Start date is optional.
-   > - Add an example message to the database initialization.
-   > - Don't worry about unit testing.
-   > - Make it pretty with a good UI/UX experience.
+   > - アナウンス情報をデータベースから取得するようにする
+   > - ヘッダーにダイアログウィンドウを開くボタンを追加する。また既存のお知らせをすべて一覧表示し、追加・変更・削除の操作を行えるようにする
+   > - サインインしたユーザーのみが、お知らせの管理にアクセスできるようにする
+   > - お知らせの表示には有効期限を付ける。開始日の入力は任意入力とする
+   > - データベースに初期値として、例となるお知らせメッセージを追加する
+   > - 単体テストの実装はしない
+   > - Make it pretty with a good UI/UX experience.ユーザーにとって優れたUI/UX体験になるよう、美しく仕上げる
    > ```
 
-1. (optional) Run the application to test the changes and provide followup prompts to Copilot for further refinement.
+1. (optional) 変更内容を確認するためにアプリケーションを実行し、さらなる改善のためにCopilotにフォローアップのプロンプトを提供する
 
-1. (optional) Before committing the changes, ask for a local review in VS Code.
+1. (optional) 変更内容をコミットする前に、VS Code上でローカルのレビューを実施する
 
-1. Commit and push the changes.
+1. 変更をコミットしプッシュする
 
-1. Create a new Pull Request with the following details.
+1. 次のような内容で新しいプルリクエストを作成する
 
    - **compare:** `enable-editing-announcements`
    - **target:** `main`
-   - **title:** `Enable Editing Announcements`
+   - **title:** `お知らせの編集を有効にする`
 
-1. Notice that Copilot was automatically added as a reviewer. Wait a moment for feedback.
+1. Copilotが自動的にレビュー担当者に追加されたことにご留意し、フィードバックを待つ
 
-1. (optional) Address any comments from Copilot.
+1. (optional) Copilotから提示されたコメントに対処する
 
-1. Merge the pull request.
+1. プルリクエストをマージする
 
-1. Nice work! You are all done, again! 🎉
+1. よくできました！これで終了となります 🎉

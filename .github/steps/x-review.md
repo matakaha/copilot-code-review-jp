@@ -1,19 +1,19 @@
 ## Review
 
-_Congratulations, you've completed this exercise! You're all set to review lots of contributions from your fellow teachers!_
+_おめでとうございます、この演習を完了しました！同僚の先生方からのたくさんの投稿を確認する準備が整いました！_
 
 <img src="https://octodex.github.com/images/jetpacktocat.png" alt=celebrate width=150 align=right>
 
-You've implemented a comprehensive GitHub Copilot code review workflow for the school's extracurricular activities website. Nice work! 🎉
+学校の課外活動ウェブサイト向けに、包括的なGitHub Copilotコードレビューワークフローを実装しました。素晴らしい仕事です！ 🎉
 
-### What you accomplished
+### この演習で学んだこと
 
-In this exercise, you learned how to:
+この演習を通して次のようなことを学びました :
 
-- **Request code reviews from Copilot in VS Code** for immediate feedback on uncommitted changes
-- **Assign Copilot as a reviewer on GitHub pull requests** to catch issues before merging
-- **Create custom instructions** to tailor review feedback to your team's standards and requirements
-- **Implement automatic code reviews** using repository rulesets for consistent quality enforcement
+- **VS Code上でCopilotにコードレビューを依頼し** コミット前に変更点に対する即時フィードバックを得ることができました
+- **GitHub上のプルリクエスト時にCopilotをレビュワーとしてアサイン** して、マージ前に問題を検出することができました
+- **カスタム指示を作成** することで、あなたのチームの標準や規約にカスタマイズされたフィードバックを獲得することができました
+- リポジトリルールセットの採用により、リポジトリに対する**強制的な自動コードレビュー** を実施し品質の一貫性を担保できました
 
 ### What's next?
 

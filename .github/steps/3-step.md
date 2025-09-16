@@ -1,6 +1,6 @@
 ## Step 3: レビューのカスタマイズ
 
-The school's coding standards are crucial for maintaining the activities website. You've noticed that teachers are using different visual styles and coding patterns. With such diverse programming backgrounds and priorities among your teacher-collaborators, let's customize Copilot's review behavior to align with the school's educational programming standards.学校のコーディング規約は、課外活動ウェブサイト維持管理に欠かすことはできません。教師たちが作成するサイトのデザインやコーティングパターンがバラバラなことに気付いたとします。協力してくれる教師たちのプログラミングに関するバックグラウンドや優先事項は様々であることを念頭に、Copilotのレビュー動作をカスタマイズして、学校としてのプログラミング基準に沿うようにカスタマイズしましょう。
+学校のコーディング規約は、課外活動ウェブサイト維持管理に欠かすことはできません。教師たちが作成するサイトのデザインやコーティングパターンがバラバラなことに気付いたとします。協力してくれる教師たちのプログラミングに関するバックグラウンドや優先事項は様々であることを念頭に、Copilotのレビュー動作をカスタマイズして、学校としてのプログラミング基準に沿うようにカスタマイズしましょう。
 
 ### 📖 Theory: リポジトリのカスタム指示
 
@@ -40,7 +40,7 @@ applyTo: "docs/*.md,README.md"
 
 ### ⌨️ Activity: リポジトリ全体に対する指示を追加する
 
-Let's customize Copilot's review considerations by adding custom instructions.カスタム指示(custom instructions)を追加して、Copilotが行うレビューの考慮事項をカスタマイズしましょう。
+カスタム指示(custom instructions)を追加して、Copilotが行うレビューの考慮事項をカスタマイズしましょう。
 
 1. VS Codeで、`add-announcement-banner` ブランチにいることを確認してください
 

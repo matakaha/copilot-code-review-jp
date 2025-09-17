@@ -38,6 +38,10 @@ GitHub CopilotはVS Code内で直接コードをレビューし、コミット�
 
    <img width="300" alt="run and debug" src="https://github.com/user-attachments/assets/50b27f2a-5eab-4827-9343-ab5bce62357e" />
 
+   Python Debuggerを求められる場合もあります。その際はインストールしてください。
+
+   <img width="300" alt="Python Debugger extension for VS Code" src="https://github.com/user-attachments/assets/0dc3a323-7649-4040-ae68-0533e194159a" />
+
    <details>
    <summary>🤷 Having trouble?</summary><br/>
 
@@ -62,8 +66,16 @@ GitHub CopilotはVS Code内で直接コードをレビューし、コミット�
    ```txt
    add-announcement-banner
    ```
+   画面下部、`main`と記載のある部分をクリックすると画面上部にメニューが提示されます。`＋新しいブランチの作成`を選択し、`add-announcement-banner`と入力しEnterを押下します。
+   
+   <img width="400" alt="VS Code" src="https://github.com/user-attachments/assets/ea12fecd-db48-46ae-b761-1be73b26c7ed" />
+   
+   画面下部、`main`が`add-announcement-banner`になっていれば成功です。
+   
+   <img width="400" alt="VS Code" src="https://github.com/user-attachments/assets/8f1ccdf8-c560-44df-9e44-4555e24610c6" />
 
-1. `src/static/index.html` ファイルを開きます。`<body>` タグの後に以下の内容を追加します
+
+1. `src/static/index.html` ファイルを開きます。`<body>` タグのすぐ後に以下の内容を追加します
 
    ```html
    <div class="announcement-banner">
@@ -86,23 +98,23 @@ GitHub CopilotはVS Code内で直接コードをレビューし、コミット�
 
    <img width="400" alt="screenshot of site with announcement banner" src="https://github.com/user-attachments/assets/39de7fe0-58f2-4eba-a163-d3037b2b3b06"/>
 
-1. VS Code でソース管理パネルを開き、コミットされていない変更があることを確認してください
+1. VS Code でソース管理パネルを開き、すべての変更が保存されてることを確認してください
 
-1. **Changes**セクションにカーソルを合わせると、さまざまなアイコンが表示されます。**Code Review**ボタンをクリックし、Copilotがコメントを追加するまでしばらくお待ちください
+1. ソース管理タブの **変更** セクションにカーソルを合わせると、さまざまなアイコンが表示されます。**Code Review**ボタンをクリックし、Copilotがコメントを追加するまでしばらくお待ちください
 
    <img width="300" alt="screenshot of site with announcement banner" src="https://github.com/user-attachments/assets/6c52d550-d67b-4af9-99dd-e181695a4933"/>
 
-   > 💡 **TIP:** 利用可能なレビューレベルは3つあります：`未ステージングの変更`、`ステージング済みの変更`、`未コミットの変更`
+   > 💡 **TIP:** 利用可能なレビューレベルは3つ提示されることがあります：`未ステージングの変更`、`ステージング済みの変更`、`未コミットの変更`
 
 1. **コメント**パネルを展開すると、Copilotからのレビューフィードバックの一覧が表示されます
 
    <img width="300" alt="screenshot of problems control panel with comments from Copilot" src="https://github.com/user-attachments/assets/64c5efb6-9071-4511-b2a2-2dc85c9e929b"/>
 
-1. Copilot のフィードバックに対応するには、**適用** または **破棄** ボタンを使用してください
+1. Copilot のフィードバックに対応するには、**適用(適用して次へ移動)** または **破棄(破棄して次へ移動)** ボタンを使用してください
 
    <img width="300" alt="screenshot of inline comment with buttons to address feedback" src="https://github.com/user-attachments/assets/aef73097-acaf-4f5b-a52f-52a142bb413f"/>
 
-1. `add-announcement-banner` ブランチに、アナウンス関連の変更をコミットしてプッシュしてください
+1. `add-announcement-banner` ブランチに、お知らせ関連の変更をコミットしてプッシュしてください。（コミットメッセージの生成ボタン（キラキラアイコン）をクリックし、Copilotにコミットメッセージを生成してもらいましょう）
 
 1. 変更をプッシュしたら、モナが作業を確認し、フィードバックを提供し、次のレッスンを共有するまでしばらくお待ちください
 

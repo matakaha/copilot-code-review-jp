@@ -6,7 +6,7 @@
 
 リポジトリルールセットを使用すると、すべてのプルリクエストに対して自動コードレビューを強制適用でき、開発者が手動でレビューを依頼したりドキュメントに従うことを忘れたりすることなく、一貫した品質チェックを保証します。
 
-Each code review consumes one [Premium Request Unit (PRU)](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) from the author of the pull request.プルリクエストの作成者から、各コードレビューごとに1つの[プレミアムリクエストユニット（PRU:Premium Request Unit）](https://docs.github.com/en/copilot/concepts/billing/copilot-requests)が消費されます。
+プルリクエストの作成者から、各コードレビューごとに1つの[プレミアムリクエストユニット（PRU:Premium Request Unit）](https://docs.github.com/en/copilot/concepts/billing/copilot-requests)が消費されます。
 
 **強制するためのオプション :**
 
@@ -62,7 +62,7 @@ Each code review consumes one [Premium Request Unit (PRU)](https://docs.github.c
 
 1. プルリクエストをマージする
 
-   > 🪧 **Note**: If the **Merge pull request** button doesn't activate, check for unresolved conversations in the outdated comments.**Merge pull request**ボタンが有効化されない場合は、古いコメント内の未解決の会話がないか確認してください。
+   > 🪧 **Note**: **Merge pull request**ボタンが有効化されない場合は、古いコメント内の未解決の会話がないか確認してください。
 
 1. プルリクエストがマージされたら、Monaが作業を確認し、フィードバックを提供し、最終レビューを行うまでしばらくお待ちください。素晴らしい！これで完了です！ 🎉
 
@@ -98,7 +98,7 @@ Each code review consumes one [Premium Request Unit (PRU)](https://docs.github.c
    > - お知らせの表示には有効期限を付ける。開始日の入力は任意入力とする
    > - データベースに初期値として、例となるお知らせメッセージを追加する
    > - 単体テストの実装はしない
-   > - Make it pretty with a good UI/UX experience.ユーザーにとって優れたUI/UX体験になるよう、美しく仕上げる
+   > - ユーザーにとって優れたUI/UX体験になるよう、美しく仕上げる
    > ```
 
 1. (optional) 変更内容を確認するためにアプリケーションを実行し、さらなる改善のためにCopilotにフォローアップのプロンプトを提供する
